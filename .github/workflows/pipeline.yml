@@ -47,7 +47,7 @@ jobs:
       shell: bash
       run: |
         curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
-        syft ${{ steps.meta.outputs.tags }} --source-name=pkg:oci/testifysec/swf -o cyclonedx-json --file sbom.cdx.json
+        syft ${{ steps.meta.outputs.tags }} --source-name=pkg:oci/${{ github.repository }} -o cyclonedx-json --file sbom.cdx.json
 
     - name: Upload SBOM
       uses: actions/upload-artifact@v4.3.3

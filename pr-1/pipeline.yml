@@ -54,7 +54,7 @@ jobs:
         attestations: "environment git github sbom"
         command: |
           /bin/sh -c "curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin v1.7.0 && \
-            syft ${{ steps.meta.outputs.tags }} --source-name=pkg:oci/testifysec/swf -o cyclonedx-json --file sbom.cdx.json"
+            syft ${{ steps.meta.outputs.tags }} --source-name=pkg:oci/${{ github.repository }} -o cyclonedx-json --file sbom.cdx.json"
 
     - name: Upload SBOM
       uses: actions/upload-artifact@v4.3.3
