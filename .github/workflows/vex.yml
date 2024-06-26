@@ -28,7 +28,7 @@ jobs:
         step: gen-vex
         attestations: "environment git github vex"
         command: |
-          /bin/sh -c 'vexctl create --product="pkg:golang/stdlib@go1.21.4" --vuln="CVE-2023-45285" --status="not_affected" --justification="inline_mitigations_already_exist" --file="./openvex.json"'
+          /bin/sh -c 'vexctl create --product="pkg:oci/${{ github.repository }}@main" --vuln="CVE-2023-45285" --status="not_affected" --justification="inline_mitigations_already_exist" --file="./openvex.json"'
 
     - name: Upload VEX
       uses: actions/upload-artifact@v4.3.3
