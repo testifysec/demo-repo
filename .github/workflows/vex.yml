@@ -24,7 +24,7 @@ jobs:
     - name: Generate VEX
       uses: testifysec/witness-run-action@reusable-workflow # v0.2.0
       with:
-        archivista-server: "https://judge-api.aws-sandbox-staging.testifysec.dev"
+        archivista-server: "https://archivista.aws-sandbox-staging.testifysec.dev"
         step: gen-vex
         attestations: "environment git github vex"
         command: |
