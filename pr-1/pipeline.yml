@@ -41,7 +41,7 @@ jobs:
     - name: Build Image
       uses: testifysec/witness-run-action@reusable-workflow # v0.2.0
       with:
-        archivista-server: "https://judge-api.aws-sandbox-staging.testifysec.dev"
+        archivista-server: "https://archivista.aws-sandbox-staging.testifysec.dev"
         step: build-image
         attestations: "environment git github slsa"
         command: /bin/sh -c "docker buildx build -t ${{ steps.meta.outputs.tags }} -o type=image,push=true -o type=tar,dest=image.tar ."
@@ -49,7 +49,7 @@ jobs:
     - name: Generate SBOM
       uses: testifysec/witness-run-action@reusable-workflow # v0.2.0
       with:
-        archivista-server: "https://judge-api.aws-sandbox-staging.testifysec.dev"
+        archivista-server: "https://archivista.aws-sandbox-staging.testifysec.dev"
         step: gen-sbom
         attestations: "environment git github sbom"
         command: |
